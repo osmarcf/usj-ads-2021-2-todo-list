@@ -28,19 +28,10 @@ public class TodoController {
         modelAndView.addObject("todo_list", list);
         return modelAndView;
     }
-    
 
     @PostMapping(value="/add")
-    public String postAdd(@RequestParam String todo) {
-        //list.add(todo);
-
-        Todo newTodo = new Todo();
-        newTodo.setDescription(todo);
-
-        todoRepository.save(newTodo);
-
+    public String postAdd(Todo todo) {
+        todoRepository.save(todo);
         return "redirect:/";
     }
-    
-    
 }
